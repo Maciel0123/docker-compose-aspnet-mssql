@@ -5,18 +5,17 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- script: echo Hello, World!
+  displayName: 'Run a one-line script'
+
+- script:
+    echo Add other tasks to build, test, and deploy your project.
+    echo See http://aka.ms/yaml
+  displayName: 'Run a mulit-line script'
+
 - task: Docker@2
   inputs:
-    containerRegistry: 'dotnetmssqlpf0841g1'
-    repository: 'dotnetsql'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: |
-      $(Build.BuildId)
-      latest
-- task: Docker@2
-  inputs:
-    containerRegistry: 'dotnetmssqlrm9999'
+    containerRegistry: 'dotnetmssqlrm554773'
     repository: 'dotnetsql'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
